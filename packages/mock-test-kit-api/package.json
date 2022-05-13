@@ -1,0 +1,29 @@
+{
+    "name": "mock-test-kit-api",
+    "version": "0.0.1",
+    "description": "A Mock REST & GraphQL API",
+    "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
+    "private": true,
+    "main": "app.js",
+    "directories": {
+        "test": "__tests__"
+    },
+    "scripts": {
+        "dev": "fastify start -w -l info -P app.js -p ${PORT}",
+        "start": "fastify start -l info app.js -p -p ${PORT}",
+        "test": "jest --coverage"
+    },
+    "dependencies": {
+        "@rise8/mock-test-kit-utils": "^0.0.4",
+        "fastify": "3.0.0",
+        "fastify-autoload": "3.3.1",
+        "fastify-cli": "2.13.0",
+        "fastify-plugin": "3.0.0",
+        "fastify-sensible": "3.1.0",
+        "graphql": "15.6.1",
+        "mercurius": "8.6.0"
+    },
+    "devDependencies": {
+        "tap": "15.0.9"
+    }
+}

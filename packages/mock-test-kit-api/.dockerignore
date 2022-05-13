@@ -1,0 +1,9 @@
+*
+
+!routes
+!utils
+
+!.npmrc
+!package.json
+!yarn.lock
+!app.js

@@ -1,0 +1,29 @@
+{
+  "name": "@rise8/mock-test-kit-utils",
+  "version": "0.0.1",
+  "description": "Utils to be used with @rise8/mock-test-kit",
+  "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rise8-us/mock-test-kit.git"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "27.3.0"
+  }
+}
