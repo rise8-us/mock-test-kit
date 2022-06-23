@@ -1,0 +1,7 @@
+.idea
+.gitignore
+.npmignore
+__tests__
+node_modules
+jest.config.js
+yarn.error.log
