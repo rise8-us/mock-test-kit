@@ -6,15 +6,24 @@ const mercurius = require('mercurius')
 const {setupGraphql} = require('@rise8/mock-test-kit-utils');
 const AutoLoad = require('fastify-autoload');
 
-module.exports = async function (fastify, opts) {
-    fastify.register(AutoLoad, {
-        dir: path.join(__dirname, 'routes'),
-        options: Object.assign({}, opts)
-    })
+const { parseJsonContentType } = require('./lib/utils');
 
+module.exports = async function (fastify, opts) {
+  await fastify.addContentTypeParser('application/json', {parseAs: 'string'}, parseJsonContentType);
+  fastify.register(require('@fastify/formbody'));
+  fastify.register(require('@fastify/cors'), {origin: '*', methods: ["GET", "POST", "PUT", "DELETE"]});
+  fastify.register(AutoLoad, {
+    dir: path.join(__dirname, 'routes'),
+    options: Object.assign({}, opts),
+  })
+
+  const schemaPath = `/tmp/schema/${process.env.API_NAME}.graphql`;
+
+  if (fs.existsSync(schemaPath)) {
     fastify.register(mercurius, {
-        schema: fs.readFileSync(`/tmp/schema/${process.env.API_NAME}.graphql`, 'utf-8'),
-        resolvers: setupGraphql(process.env.API_NAME, '/tmp/mock-data'),
-        federationMetadata: true
+      schema: fs.readFileSync(schemaPath, 'utf-8'),
+      resolvers: setupGraphql(process.env.API_NAME, '/tmp/mock-data'),
+      federationMetadata: true,
     });
+  }
 }

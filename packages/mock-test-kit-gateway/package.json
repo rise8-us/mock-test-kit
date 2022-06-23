@@ -19,7 +19,7 @@
         "fastify-plugin": "3.0.0",
         "fastify-sensible": "3.1.1",
         "graphql": "15.6.1",
-        "mercurius": "8.6.0"
+        "mercurius": "9.8.0"
     },
     "devDependencies": {
         "jest": "27.3.0",

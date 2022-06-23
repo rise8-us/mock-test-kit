@@ -1,4 +1,4 @@
-# `mock-test-kit-gateway`
+# `@rise8/mock-test-kit-gateway`
 
 In your docker-compose.yaml add:
 
