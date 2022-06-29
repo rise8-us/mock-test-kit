@@ -1,4 +1,4 @@
-FROM mock-test-kit/base as builder
+FROM ghcr.io/mock-test-kit/base:latest as builder
 
 WORKDIR /usr/src/app
 

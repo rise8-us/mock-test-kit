@@ -270,7 +270,7 @@ files you include must be found in `/tmp`. In the case of docker you will need t
 ### Build Base Image
 From the root of the project, run the following command:
 ```shell
-docker build -t mock-test-kit/base .
+docker build -t ghcr.io/mock-test-kit/base:latest .
 ```
 
 ### Build API Image
