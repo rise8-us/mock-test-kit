@@ -2,26 +2,26 @@ name: Publish
 
 on:
   release:
-    types: [created]
+    types: [ created ]
 
 env:
   REGISTRY: ghcr.io
   API_IMAGE_NAME: rise8-us/mock-test-kit-api
 
 jobs:
-   publish-npm:
-     runs-on: ubuntu-latest
-     steps:
-       - uses: actions/checkout@v2
-       - uses: actions/setup-node@v1
-         with:
-           node-version: 16
-           registry-url: https://registry.npmjs.org/
-       - run: |
-           cd packages/mock-test-kit-utils
-           npm publish
-         env:
-           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          cd packages/mock-test-kit-utils
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-api:
     runs-on: ubuntu-latest
