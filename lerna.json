@@ -1,15 +1,10 @@
 {
-  "version": "independent",
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "npmClient": "yarn",
+  "useNx": true,
+  "useWorkspaces": true,
+  "version": "0.0.2",
   "packages": [
     "packages/*"
-  ],
-  "useWorkspaces": true,
-  "command": {
-    "publish": {
-      "conventionalCommits": true,
-      "message": "chore(release): Publish.",
-      "ignoreChanges": ["*.md", "__tests__/**"]
-    }
-  }
+  ]
 }
