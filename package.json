@@ -3,14 +3,19 @@
   "private": true,
   "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
   "license": "MIT",
+  "scripts": {
+    "nx": "npx nx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rise8-us/mock-test-kit.git"
+  },
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "build": "lerna exec --parallel -- yarn build",
-    "test": "lerna exec --parallel -- yarn test"
-  },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^5.2.0",
+    "nx": "^14.4.3",
+    "jest": "^28.1.3"
   }
 }
