@@ -1,8 +1,9 @@
-name: Publish
+name: Publish Mock Test Kit Utils
 
 on:
-  release:
-    types: [ created ]
+  push:
+    tags:
+      - 'v*.*.*'
 
 env:
   REGISTRY: ghcr.io

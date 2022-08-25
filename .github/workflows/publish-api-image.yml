@@ -1,10 +1,9 @@
-name: Publish API Image
+name: Publish Mock Test Kit API Image
 
 on:
-  release:
-    types: [ created ]
-
-  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
 
 env:
   REGISTRY: ghcr.io
@@ -20,6 +19,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set Tag Version
+        id: tag
+        run: |
+          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+
       - name: Log in to the Container registry
         uses: docker/login-action@v2
         with:
@@ -34,6 +38,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.API_IMAGE_NAME }}
           tags: |
             type=sha
+            type=raw,value=${{ steps.tag.outputs.VERSION }}
             type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) }}
 
       - name: Build Base Image
