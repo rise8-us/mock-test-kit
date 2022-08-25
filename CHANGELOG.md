@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.3...mock-test-kit-v0.1.4) (2022-08-25)
+
+
+### Bug Fixes
+
+* remove sha label from api docker image ([1e6fc1a](https://github.com/rise8-us/mock-test-kit/commit/1e6fc1a4212abdefcb728ccdadda54ea30ba0a38))
+
 ## [0.1.3](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.2...mock-test-kit-v0.1.3) (2022-08-25)
 
 
