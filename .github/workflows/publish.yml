@@ -3,7 +3,7 @@ name: Publish Mock Test Kit Utils
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'mock-test-kit-v*.*.*'
 
 env:
   REGISTRY: ghcr.io
@@ -14,10 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+
       - run: |
           cd packages/mock-test-kit-utils
           npm publish

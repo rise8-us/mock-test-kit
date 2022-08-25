@@ -3,7 +3,7 @@ name: Publish Mock Test Kit API Image
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'mock-test-kit-v*.*.*'
 
 env:
   REGISTRY: ghcr.io
@@ -22,7 +22,7 @@ jobs:
       - name: Set Tag Version
         id: tag
         run: |
-          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/mock-test-kit-}
 
       - name: Log in to the Container registry
         uses: docker/login-action@v2
