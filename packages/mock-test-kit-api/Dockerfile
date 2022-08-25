@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY . ./packages/mock-test-kit-api
 
-RUN lerna bootstrap
+RUN lerna bootstrap -- --ignore-scripts
 
 WORKDIR /usr/src/app/packages/mock-test-kit-api
 
