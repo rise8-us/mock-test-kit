@@ -37,7 +37,6 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.API_IMAGE_NAME }}
           tags: |
-            type=sha
             type=raw,value=${{ steps.tag.outputs.VERSION }}
             type=raw,value=latest
 
