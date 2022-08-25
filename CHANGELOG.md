@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.2...mock-test-kit-v0.1.3) (2022-08-25)
+
+
+### Bug Fixes
+
+* add latest tag to API docker image ([b43f610](https://github.com/rise8-us/mock-test-kit/commit/b43f6102b7fdad2cf4bfa86bf966d861335984cf))
+
 ## [0.1.2](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.1...mock-test-kit-v0.1.2) (2022-08-25)
 
 
