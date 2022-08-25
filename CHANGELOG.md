@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.1...mock-test-kit-v0.1.2) (2022-08-25)
+
+
+### Bug Fixes
+
+* adjust permissions in release-please ([69edb96](https://github.com/rise8-us/mock-test-kit/commit/69edb96211379ecd38bde1322a02fc2d5ebed24c))
+* update dockerfiles ([0d06ee8](https://github.com/rise8-us/mock-test-kit/commit/0d06ee8fc0bac4f8ed6b9c780604881c6a0090d6))
+
 ## [0.1.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.0...mock-test-kit-v0.1.1) (2022-08-25)
 
 
