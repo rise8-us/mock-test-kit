@@ -13,3 +13,24 @@ jobs:
           command: manifest
           default-branch: main
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
+      - name: Checkout Repository
+        if: ${{ steps.release.outputs.releases_created }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.release.outputs.pr.headBranchName }}
+          fetch-depth: 0
+      - name: Create local changes
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          yarn install
+          lerna version ${{ steps.release.outputs.tag_name }} --no-push --yes
+      - name: Commit files
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit --amend --no-edit -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
