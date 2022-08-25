@@ -8,8 +8,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           command: manifest
           default-branch: main
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
+      - name: Checkout Repository
+        if: ${{ !steps.release.outputs.release_created }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.release.outputs.pr.headBranchName }}
+          fetch-depth: 0
+      - name: Create local changes
+        if: ${{ !steps.release.outputs.release_created }}
+        run: |
+          echo "ref name: ${{ steps.release.outputs.pr.headBranchName }}"
+          echo "tag name: ${{ steps.release.outputs.tag_name }}"
+          echo "release: ${{ steps.release.outputs.release_created}}"
+          echo "releases: ${{ steps.release.outputs.releases_created }}"
+          yarn install
+          npx lerna version ${{ steps.release.outputs.tag_name }} --no-push --yes
+      - name: Commit files
+        if: ${{ !steps.release.outputs.release_created }}
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit --amend --no-edit -a
+      - name: Push changes
+        if: ${{ !steps.release.outputs.release_created }}
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
