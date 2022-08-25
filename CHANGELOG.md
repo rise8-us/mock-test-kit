@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.0...mock-test-kit-v0.1.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* update publish workflows to use correct tags ([119967c](https://github.com/rise8-us/mock-test-kit/commit/119967c5d7f682be204c98577500973fa81d6b56))
+
 ## [0.1.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.0.2...mock-test-kit-v0.1.0) (2022-08-25)
 
 
