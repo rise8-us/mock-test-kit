@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.2.0...mock-test-kit-v0.3.0) (2022-08-27)
+
+
+### Features
+
+* add ability to read all json files recursively in target directory ([b7636f9](https://github.com/rise8-us/mock-test-kit/commit/b7636f99e7d0705b5ed12b6e74280e72d26f8aff))
+
 ## [0.2.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.4...mock-test-kit-v0.2.0) (2022-08-27)
 
 
