@@ -8,4 +8,4 @@ RUN lerna bootstrap -- --ignore-scripts
 
 WORKDIR /usr/src/app/packages/mock-test-kit-api
 
-CMD ["yarn", "start"]
+CMD ["./start.sh"]
