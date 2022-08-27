@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:sonarjs/recommended",
+    "prettier"
+  ],
+  "rules": {}
+}
