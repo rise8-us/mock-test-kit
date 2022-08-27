@@ -23,11 +23,10 @@
   "scripts": {
     "test": "jest --coverage"
   },
-  "peerDependencies": {
+  "dependencies": {
     "mercurius": "9.8.0"
   },
   "devDependencies": {
-    "jest": "27.3.0",
-    "mercurius": "9.8.0"
+    "jest": "27.3.0"
   }
 }
