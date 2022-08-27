@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path')
 const mercurius = require('mercurius');
 const { readFiles } = require('./utils/file');
 const { ErrorWithProps } = mercurius;
