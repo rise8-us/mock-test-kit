@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
 const jwt = require('jsonwebtoken');
 
 const JWT_REGEX = /jwt\((.*\n*)\)/;
@@ -12,10 +12,12 @@ const applyJwt = (value) => {
   }
 
   return value;
-}
+};
 
 const evalMockJwt = (mockJwt) => {
-  let [payload, privateKey, options, passphrase] = JSON.parse(`[${mockJwt[1]}]`);
+  let [payload, privateKey, options, passphrase] = JSON.parse(
+    `[${mockJwt[1]}]`,
+  );
 
   const refinedPayload = {
     ...payload,
@@ -27,9 +29,14 @@ const evalMockJwt = (mockJwt) => {
     privateKey = fs.readFileSync(path.resolve('/tmp', privateKey));
   }
 
-  return jwt.sign(refinedPayload, passphrase ? {key: privateKey, passphrase} : (privateKey || 'privateKey'), options || {}, null);
-}
+  return jwt.sign(
+    refinedPayload,
+    passphrase ? { key: privateKey, passphrase } : privateKey || 'privateKey',
+    options || {},
+    null,
+  );
+};
 
 module.exports = {
   applyJwt,
-}
+};

@@ -10,10 +10,10 @@ const applyNow = (value) => {
   const globalMatches = value.match(REGEXG) || [];
 
   for (const globalMatch of globalMatches) {
-    const [,num, unit] = globalMatch.match(REGEX);
+    const [, num, unit] = globalMatch.match(REGEX);
 
     if (unit === 'sec') {
-      const newDate = ((Date.now() / 1000) + parseInt(num)) * 1000;
+      const newDate = (Date.now() / 1000 + parseInt(num)) * 1000;
 
       return newValue.replace(globalMatch, newDate.toString());
     }
@@ -26,8 +26,8 @@ const applyNow = (value) => {
   }
 
   return newValue;
-}
+};
 
 module.exports = {
   applyNow,
-}
+};

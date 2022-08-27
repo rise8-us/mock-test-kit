@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 const path = require('path');
-const {setupRest, createHandler} = require('../lib/setup');
+const { setupRest, createHandler } = require('../lib/setup');
 
 describe('Setup', () => {
   const api = 'mock-api';
@@ -46,7 +46,7 @@ describe('Setup', () => {
         body: {},
       };
       const endpoint = {
-        'POST': {
+        POST: {
           data: [
             {
               response,
@@ -77,7 +77,7 @@ describe('Setup', () => {
         body: {},
       };
       const endpoint = {
-        'POST': {
+        POST: {
           data: [
             {
               response,
@@ -106,18 +106,18 @@ describe('Setup', () => {
         body: {},
         query: {
           redirect_uri: 'http://localhost:3000/callback',
-        }
+        },
       };
       const response = {
         status: 301,
-        redirect: "{{query.redirect_uri}}"
+        redirect: '{{query.redirect_uri}}',
       };
       const endpoint = {
-        'POST': {
+        POST: {
           data: [
             {
               response,
-              request
+              request,
             },
           ],
         },
@@ -126,7 +126,9 @@ describe('Setup', () => {
       createHandler(endpoint, Object.keys(endpoint)[0])(request, reply);
 
       expect(mockReplyCode).toHaveBeenCalledWith(response.status);
-      expect(mockReplyRedirect).toHaveBeenCalledWith(request.query.redirect_uri);
+      expect(mockReplyRedirect).toHaveBeenCalledWith(
+        request.query.redirect_uri,
+      );
     });
 
     it('should not match data and return a 404', () => {
@@ -141,7 +143,7 @@ describe('Setup', () => {
         body: {},
       };
       const endpoint = {
-        'POST': {
+        POST: {
           data: [
             {
               response,
@@ -170,7 +172,7 @@ describe('Setup', () => {
         body: {},
       };
       const endpoint = {
-        'POST': {
+        POST: {
           data: [
             {
               response,
@@ -179,7 +181,6 @@ describe('Setup', () => {
                 query: {
                   a: 'FD26394B-77B9-41A0-A473-744664A047DD',
                 },
-
               },
             },
           ],
@@ -205,7 +206,7 @@ describe('Setup', () => {
         body: {},
       };
       const endpoint = {
-        'POST': {
+        POST: {
           data: [
             {
               response,
@@ -214,7 +215,6 @@ describe('Setup', () => {
                   x: 'FD26394B-77B9-41A0-A473-744664A047DD',
                 },
                 query: {},
-
               },
             },
           ],
@@ -226,63 +226,62 @@ describe('Setup', () => {
       expect(mockReplyCode).toHaveBeenCalledWith(404);
     });
 
-    it('should match params, query, and body then return a 409, 200, 409, and 200',
-        () => {
-          const request = {
-            body: {},
-            params: {
-              user: 'user',
-            },
-            query: {
-              a: '849F533C-F720-40E6-9B27-707566B3B030',
-            },
-          };
-          const response = [
+    it('should match params, query, and body then return a 409, 200, 409, and 200', () => {
+      const request = {
+        body: {},
+        params: {
+          user: 'user',
+        },
+        query: {
+          a: '849F533C-F720-40E6-9B27-707566B3B030',
+        },
+      };
+      const response = [
+        {
+          status: 409,
+          body: {
+            message: 'There was a conflict.',
+          },
+        },
+        {
+          status: 200,
+          body: {
+            userId: '849F533C-F720-40E6-9B27-707566B3B030',
+          },
+        },
+      ];
+      const endpoint = {
+        POST: {
+          data: [
             {
-              'status': 409,
-              'body': {
-                'message': 'There was a conflict.',
-              },
-            },
-            {
-              'status': 200,
-              'body': {
-                'userId': '849F533C-F720-40E6-9B27-707566B3B030',
-              },
-            },
-          ];
-          const endpoint = {
-            'POST': {
-              data: [
-                {
-                  response,
-                  request: {
-                    body: {},
-                    params: {
-                      user: 'user',
-                    },
-                    query: {
-                      a: '849F533C-F720-40E6-9B27-707566B3B030',
-                    },
-                  },
+              response,
+              request: {
+                body: {},
+                params: {
+                  user: 'user',
                 },
-              ],
+                query: {
+                  a: '849F533C-F720-40E6-9B27-707566B3B030',
+                },
+              },
             },
-          };
+          ],
+        },
+      };
 
-          const handler = createHandler(endpoint, Object.keys(endpoint)[0]);
+      const handler = createHandler(endpoint, Object.keys(endpoint)[0]);
 
-          handler(request, reply);
-          expect(mockReplyCode).toHaveBeenCalledWith(409);
+      handler(request, reply);
+      expect(mockReplyCode).toHaveBeenCalledWith(409);
 
-          handler(request, reply);
-          expect(mockReplyCode).toHaveBeenCalledWith(200);
+      handler(request, reply);
+      expect(mockReplyCode).toHaveBeenCalledWith(200);
 
-          handler(request, reply);
-          expect(mockReplyCode).toHaveBeenCalledWith(409);
+      handler(request, reply);
+      expect(mockReplyCode).toHaveBeenCalledWith(409);
 
-          handler(request, reply);
-          expect(mockReplyCode).toHaveBeenCalledWith(200);
-        });
+      handler(request, reply);
+      expect(mockReplyCode).toHaveBeenCalledWith(200);
+    });
   });
 });

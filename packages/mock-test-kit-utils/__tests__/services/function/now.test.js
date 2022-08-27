@@ -1,4 +1,4 @@
-const {applyNow} = require('../../../lib/services/function/now');
+const { applyNow } = require('../../../lib/services/function/now');
 
 describe('now', () => {
   describe('applyNow', () => {
@@ -21,7 +21,7 @@ describe('now', () => {
       const value = 'now(1,sec)';
       const actualValue = applyNow(value);
 
-      expect(parseInt(actualValue)).toBeGreaterThanOrEqual(now)
+      expect(parseInt(actualValue)).toBeGreaterThanOrEqual(now);
     });
 
     it('should return new value when now() subtracts seconds', () => {

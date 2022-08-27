@@ -1,37 +1,37 @@
 {
-    "name": "mock-test-kit-api",
-    "version": "0.3.0",
-    "description": "A Mock REST & GraphQL API",
-    "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
-    "private": true,
-    "main": "app.js",
-    "directories": {
-        "test": "__tests__"
-    },
-    "scripts": {
-        "dev": "fastify start -w -l info -P app.js -p ${PORT}",
-        "start": "fastify start -l info app.js -p ${PORT}",
-        "lint": "eslint .",
-        "test": "jest --coverage",
-        "watch": "nodemon --watch \"/tmp/mock-data/**/*\" -e json --exec yarn start"
-    },
-    "peerDependencies": {
-        "mercurius": "9.8.0"
-    },
-    "dependencies": {
-        "@fastify/cors": "7.0.0",
-        "@fastify/formbody": "7.0.0",
-        "@rise8/mock-test-kit-utils": "^0.3.0",
-        "fastify": "3.0.0",
-        "fastify-autoload": "3.3.1",
-        "fastify-cli": "2.13.0",
-        "fastify-plugin": "3.0.0",
-        "fastify-sensible": "3.1.0",
-        "graphql": "15.6.1",
-        "jsonwebtoken": "8.5.1",
-        "nodemon": "2.0.12"
-    },
-    "devDependencies": {
-        "tap": "15.0.9"
-    }
+  "name": "mock-test-kit-api",
+  "version": "0.3.0",
+  "description": "A Mock REST & GraphQL API",
+  "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
+  "private": true,
+  "main": "app.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "scripts": {
+    "dev": "fastify start -w -l info -P app.js -p ${PORT}",
+    "start": "fastify start -l info app.js -p ${PORT}",
+    "lint": "eslint .",
+    "test": "jest --coverage",
+    "watch": "nodemon --watch \"/tmp/mock-data/**/*\" -e json --exec yarn start"
+  },
+  "peerDependencies": {
+    "mercurius": "9.8.0"
+  },
+  "dependencies": {
+    "@fastify/cors": "7.0.0",
+    "@fastify/formbody": "7.0.0",
+    "@rise8/mock-test-kit-utils": "^0.3.0",
+    "fastify": "3.0.0",
+    "fastify-autoload": "3.3.1",
+    "fastify-cli": "2.13.0",
+    "fastify-plugin": "3.0.0",
+    "fastify-sensible": "3.1.0",
+    "graphql": "15.6.1",
+    "jsonwebtoken": "8.5.1",
+    "nodemon": "2.0.12"
+  },
+  "devDependencies": {
+    "tap": "15.0.9"
+  }
 }

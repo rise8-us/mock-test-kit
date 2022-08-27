@@ -6,7 +6,10 @@ const readFiles = (dirname, onFileContent) => {
     if (fs.statSync(path.join(dirname, filename)).isDirectory()) {
       readFiles(path.join(dirname, filename), onFileContent);
     } else {
-      onFileContent(filename, fs.readFileSync(path.join(dirname, filename), 'utf-8'));
+      onFileContent(
+        filename,
+        fs.readFileSync(path.join(dirname, filename), 'utf-8'),
+      );
     }
   });
 };
@@ -14,4 +17,3 @@ const readFiles = (dirname, onFileContent) => {
 module.exports = {
   readFiles,
 };
-
