@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.3.0...mock-test-kit-v0.4.0) (2022-08-27)
+
+
+### Features
+
+* **development:** add linting ([b3ade11](https://github.com/rise8-us/mock-test-kit/commit/b3ade11f805a6a82159625aa06915ac5df09de99))
+* **development:** add prettier ([e60c817](https://github.com/rise8-us/mock-test-kit/commit/e60c817ee72deded4ade9577cbf63f2a21f597ef))
+
+
+### Bug Fixes
+
+* update peerDeps and build with production to produce smaller docker image in mock-test-kit-api ([a6e1239](https://github.com/rise8-us/mock-test-kit/commit/a6e1239a2a296d95b01e15fd12ceece7a95a9dfb))
+
 ## [0.3.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.2.0...mock-test-kit-v0.3.0) (2022-08-27)
 
 
