@@ -3,6 +3,7 @@ const path = require('path')
 
 const {isMatch} = require('./services/matching');
 const {substituteResponse} = require('./services/substitutions');
+const {readFiles} = require('./utils/file');
 
 const replyWithResponse = (reply, response) => {
   if (response.status >= 300 && response.status < 400) {
@@ -73,13 +74,6 @@ const generateHandlers = (endpoints, fastify) => {
     });
   });
 }
-
-const readFiles = (dirname, onFileContent) => {
-  fs.readdirSync(dirname).forEach(function (filename) {
-    onFileContent(filename,
-        fs.readFileSync(path.join(dirname, filename), 'utf-8'));
-  });
-};
 
 const setupRest = (name, dir, fastify) => generateHandlers(
     collectEndpoints(name, dir), fastify);

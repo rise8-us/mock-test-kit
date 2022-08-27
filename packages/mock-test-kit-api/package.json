@@ -12,7 +12,7 @@
         "dev": "fastify start -w -l info -P app.js -p ${PORT}",
         "start": "fastify start -l info app.js -p ${PORT}",
         "test": "jest --coverage",
-        "watch": "nodemon --watch /tmp/mock-data --exec yarn start"
+        "watch": "nodemon --watch \"/tmp/mock-data/**/*\" -e json --exec yarn start"
     },
     "dependencies": {
         "@fastify/cors": "7.0.0",
