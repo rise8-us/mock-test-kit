@@ -1,21 +1,28 @@
-'use strict'
+'use strict';
 
 const fs = require('fs');
 const path = require('path');
-const mercurius = require('mercurius')
-const {setupGraphql} = require('@rise8/mock-test-kit-utils');
+const mercurius = require('mercurius');
+const { setupGraphql } = require('@rise8/mock-test-kit-utils');
 const AutoLoad = require('fastify-autoload');
 
 const { parseJsonContentType } = require('./lib/utils');
 
 module.exports = async function (fastify, opts) {
-  await fastify.addContentTypeParser('application/json', {parseAs: 'string'}, parseJsonContentType);
+  await fastify.addContentTypeParser(
+    'application/json',
+    { parseAs: 'string' },
+    parseJsonContentType,
+  );
   fastify.register(require('@fastify/formbody'));
-  fastify.register(require('@fastify/cors'), {origin: '*', methods: ["GET", "POST", "PUT", "DELETE"]});
+  fastify.register(require('@fastify/cors'), {
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  });
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),
     options: Object.assign({}, opts),
-  })
+  });
 
   const schemaPath = `/tmp/schema/${process.env.API_NAME}.graphql`;
 
@@ -26,4 +33,4 @@ module.exports = async function (fastify, opts) {
       federationMetadata: true,
     });
   }
-}
+};

@@ -13,12 +13,17 @@ const isMatch = (actual, mock) => {
       return false;
     }
 
-    if ((Array.isArray(mock[key]) && !Array.isArray(actual[key]))
-        || (Array.isArray(actual[key]) && !Array.isArray(mock[key]))) {
-      return false
+    if (
+      (Array.isArray(mock[key]) && !Array.isArray(actual[key])) ||
+      (Array.isArray(actual[key]) && !Array.isArray(mock[key]))
+    ) {
+      return false;
     }
 
-    if (Array.isArray(mock[key]) && !isMatch(mock[key].sort(), actual[key].sort())) {
+    if (
+      Array.isArray(mock[key]) &&
+      !isMatch(mock[key].sort(), actual[key].sort())
+    ) {
       return false;
     }
 
@@ -30,7 +35,10 @@ const isMatch = (actual, mock) => {
       return false;
     }
 
-    if (typeof actual[key] === 'string' && actual[key].match(mock[key]) === null) {
+    if (
+      typeof actual[key] === 'string' &&
+      actual[key].match(mock[key]) === null
+    ) {
       return false;
     }
   }
@@ -40,4 +48,4 @@ const isMatch = (actual, mock) => {
 
 module.exports = {
   isMatch,
-}
+};

@@ -1,24 +1,34 @@
-const {isMatch} = require('./services/matching');
-const {substituteResponse} = require('./services/substitutions');
-const {readFiles} = require('./utils/file');
+const { isMatch } = require('./services/matching');
+const { substituteResponse } = require('./services/substitutions');
+const { readFiles } = require('./utils/file');
 
 const replyWithResponse = (reply, response) => {
   if (response.status >= 300 && response.status < 400) {
-    reply.code(response.status).headers(response.headers || {}).redirect(response.redirect);
+    reply
+      .code(response.status)
+      .headers(response.headers || {})
+      .redirect(response.redirect);
   } else {
-    reply.code(response.status).headers(response.headers || {}).send(response.body);
+    reply
+      .code(response.status)
+      .headers(response.headers || {})
+      .send(response.body);
   }
-}
+};
 
 const createHandler = (endpoint, method) => async (request, reply) => {
   const mocks = endpoint[method].data;
 
   // eslint-disable-next-line no-unused-vars
-  const mock = mocks.find(({request: req, response: res}) => {
+  const mock = mocks.find(({ request: req, response: res }) => {
     // istanbul ignore next
-    return req && request && isMatch(request.query || {}, req.query || {}) &&
-        isMatch(request.params || {}, req.params || {}) && isMatch(
-            request.body || {}, req.body || {});
+    return (
+      req &&
+      request &&
+      isMatch(request.query || {}, req.query || {}) &&
+      isMatch(request.params || {}, req.params || {}) &&
+      isMatch(request.body || {}, req.body || {})
+    );
   });
 
   if (mock) {
@@ -33,34 +43,36 @@ const createHandler = (endpoint, method) => async (request, reply) => {
 
     replyWithResponse(reply, response);
   } else {
-    reply.code(404).send(
-        {error: 'Not found.', message: 'Not found.', statusCode: 404});
+    reply
+      .code(404)
+      .send({ error: 'Not found.', message: 'Not found.', statusCode: 404 });
   }
-}
+};
 
 const collectEndpoints = (name, dir) => {
   const endpoints = {};
 
   readFiles(dir, (filename, content) => {
     JSON.parse(content).forEach(
-        ({api, endpoint, httpMethod, request, response}) => {
-          if (api === name && endpoint !== '/graphql') {
-            if (endpoints[endpoint] && endpoints[endpoint][httpMethod]) {
-              endpoints[endpoint][httpMethod].data.push({request, response});
-            } else {
-              endpoints[endpoint] = {
-                ...endpoints[endpoint],
-                [httpMethod]: {
-                  data: [{request, response}],
-                },
-              }
-            }
+      ({ api, endpoint, httpMethod, request, response }) => {
+        if (api === name && endpoint !== '/graphql') {
+          if (endpoints[endpoint] && endpoints[endpoint][httpMethod]) {
+            endpoints[endpoint][httpMethod].data.push({ request, response });
+          } else {
+            endpoints[endpoint] = {
+              ...endpoints[endpoint],
+              [httpMethod]: {
+                data: [{ request, response }],
+              },
+            };
           }
-        });
+        }
+      },
+    );
   });
 
   return endpoints;
-}
+};
 
 const generateHandlers = (endpoints, fastify) => {
   Object.keys(endpoints).forEach((path) => {
@@ -71,10 +83,10 @@ const generateHandlers = (endpoints, fastify) => {
       fastify[method.toLowerCase()](path, createHandler(endpoint, method));
     });
   });
-}
+};
 
-const setupRest = (name, dir, fastify) => generateHandlers(
-    collectEndpoints(name, dir), fastify);
+const setupRest = (name, dir, fastify) =>
+  generateHandlers(collectEndpoints(name, dir), fastify);
 
 module.exports = {
   createHandler,

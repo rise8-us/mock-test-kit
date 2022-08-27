@@ -1,4 +1,4 @@
-const {isMatch} = require('../../lib/services/matching');
+const { isMatch } = require('../../lib/services/matching');
 
 describe('Matching', () => {
   describe('isMatch', () => {
@@ -11,10 +11,10 @@ describe('Matching', () => {
 
     it('should not match when both are different types', () => {
       const mockRequest = {
-        foo: true
+        foo: true,
       };
       const actualRequest = {
-        foo: 'true'
+        foo: 'true',
       };
 
       expect(isMatch(actualRequest, mockRequest)).toBe(false);
@@ -22,10 +22,10 @@ describe('Matching', () => {
 
     it('should not match when both are different types of object', () => {
       const mockRequest = {
-        foo: {}
+        foo: {},
       };
       const actualRequest = {
-        foo: []
+        foo: [],
       };
 
       expect(isMatch(actualRequest, mockRequest)).toBe(false);
@@ -33,10 +33,10 @@ describe('Matching', () => {
 
     it('should not match when both are different types of object reversed', () => {
       const mockRequest = {
-        foo: []
+        foo: [],
       };
       const actualRequest = {
-        foo: {}
+        foo: {},
       };
 
       expect(isMatch(actualRequest, mockRequest)).toBe(false);
@@ -83,12 +83,12 @@ describe('Matching', () => {
     it('should not match when both same property with different objects', () => {
       const mockRequest = {
         foo: {
-          bar: 'baz'
+          bar: 'baz',
         },
       };
       const actualRequest = {
         foo: {
-          baz: 'bar'
+          baz: 'bar',
         },
       };
 
@@ -124,14 +124,18 @@ describe('Matching', () => {
         foo: {
           bar: 'baz',
         },
-        bar: [{
-          baz: 'qux',
-        }]
+        bar: [
+          {
+            baz: 'qux',
+          },
+        ],
       };
       const actualRequest = {
-        bar: [{
-          baz: 'qux',
-        }],
+        bar: [
+          {
+            baz: 'qux',
+          },
+        ],
         foo: {
           bar: 'baz',
         },
@@ -178,7 +182,7 @@ describe('Matching', () => {
         foo: true,
       };
       const actualRequest = {
-        foo: true
+        foo: true,
       };
 
       expect(isMatch(actualRequest, mockRequest)).toBe(true);
@@ -189,7 +193,7 @@ describe('Matching', () => {
         foo: true,
       };
       const actualRequest = {
-        foo: false
+        foo: false,
       };
 
       expect(isMatch(actualRequest, mockRequest)).toBe(false);

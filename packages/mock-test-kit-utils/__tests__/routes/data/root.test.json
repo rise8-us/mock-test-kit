@@ -1,17 +1,17 @@
 [
-    {
-        "api": "not-mock-api",
-        "endpoint": "/not/mock/user",
-        "httpMethod": "DELETE",
-        "request": {
-            "params": {},
-            "query": {
-                "a": "AD26394B-77B9-41A0-A473-744664A047DZ"
-            }
-        },
-        "response": {
-            "status": 200,
-            "body": {}
-        }
+  {
+    "api": "not-mock-api",
+    "endpoint": "/not/mock/user",
+    "httpMethod": "DELETE",
+    "request": {
+      "params": {},
+      "query": {
+        "a": "AD26394B-77B9-41A0-A473-744664A047DZ"
+      }
+    },
+    "response": {
+      "status": 200,
+      "body": {}
     }
+  }
 ]

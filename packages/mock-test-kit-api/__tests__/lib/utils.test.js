@@ -42,7 +42,7 @@ describe('utils', () => {
       parseJsonContentType(req, body, done);
       expect(done).toHaveBeenCalledWith(
         expect.objectContaining({ statusCode: 400 }),
-        undefined
+        undefined,
       );
     });
   });
