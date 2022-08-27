@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.4...mock-test-kit-v0.2.0) (2022-08-27)
+
+
+### Features
+
+* add watch mode to mock-test-kit-api ([9b07f7f](https://github.com/rise8-us/mock-test-kit/commit/9b07f7f27b26a7a0d6227d80cd911e562af6d2e6))
+
 ## [0.1.4](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.1.3...mock-test-kit-v0.1.4) (2022-08-25)
 
 

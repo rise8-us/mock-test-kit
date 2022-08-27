@@ -1,6 +1,6 @@
 {
   "name": "@rise8/mock-test-kit-utils",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Utils to be used with rise8/mock-test-kit-api and rise8/mock-test-kit-gateway",
   "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
   "homepage": "",
