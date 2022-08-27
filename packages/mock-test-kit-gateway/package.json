@@ -11,6 +11,7 @@
     "scripts": {
         "dev": "fastify start -w -l info -P app.js -p ${PORT} -- --config `jq -Rrs '.| gsub(\"\\\\\\\\s+\"; \"\")' /tmp/gateway/config.json`",
         "start": "fastify start -l info app.js -p ${PORT} -- --config `jq -Rrs '.| gsub(\"\\\\\\\\s+\"; \"\")' /tmp/gateway/config.json`",
+        "lint": "eslint .",
         "test": "jest --coverage"
     },
     "dependencies": {

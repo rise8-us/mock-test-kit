@@ -21,6 +21,7 @@
     "url": "git@github.com:rise8-us/mock-test-kit.git"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "jest --coverage"
   },
   "dependencies": {

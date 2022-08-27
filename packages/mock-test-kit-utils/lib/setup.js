@@ -1,6 +1,3 @@
-const fs = require('fs');
-const path = require('path')
-
 const {isMatch} = require('./services/matching');
 const {substituteResponse} = require('./services/substitutions');
 const {readFiles} = require('./utils/file');
@@ -16,6 +13,7 @@ const replyWithResponse = (reply, response) => {
 const createHandler = (endpoint, method) => async (request, reply) => {
   const mocks = endpoint[method].data;
 
+  // eslint-disable-next-line no-unused-vars
   const mock = mocks.find(({request: req, response: res}) => {
     // istanbul ignore next
     return req && request && isMatch(request.query || {}, req.query || {}) &&

@@ -86,7 +86,7 @@ describe('Setup GraphQL Resolvers', () => {
             const resolver = createResolver(resolvers, 'Query', 'memberCard');
 
             try {
-                const response = await resolver(null, {memberCardUuid: '3376922A-E8FA-465F-A54F-2A6EEE0B4341'});
+                await resolver(null, {memberCardUuid: '3376922A-E8FA-465F-A54F-2A6EEE0B4341'});
             } catch (error) {
                 expect(error.message).toEqual('Not Found');
             }
@@ -96,7 +96,7 @@ describe('Setup GraphQL Resolvers', () => {
             const resolver = createResolver(resolvers, 'Query', 'memberCard');
 
             try {
-                const response = await resolver(null, {memberCardUuid: 'EF025F63-63F1-47F3-BE34-71DC09C8A679'});
+                await resolver(null, {memberCardUuid: 'EF025F63-63F1-47F3-BE34-71DC09C8A679'});
             } catch (error) {
                 expect(error.message).toEqual('Not happening.');
             }

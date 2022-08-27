@@ -1,8 +1,19 @@
 {
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "extends": [
     "eslint:recommended",
     "plugin:sonarjs/recommended",
     "prettier"
   ],
-  "rules": {}
+  "rules": {
+    "sonarjs/no-duplicate-string": "off",
+    "sonarjs/cognitive-complexity": "warn"
+  }
 }

@@ -11,6 +11,7 @@
     "scripts": {
         "dev": "fastify start -w -l info -P app.js -p ${PORT}",
         "start": "fastify start -l info app.js -p ${PORT}",
+        "lint": "eslint .",
         "test": "jest --coverage",
         "watch": "nodemon --watch \"/tmp/mock-data/**/*\" -e json --exec yarn start"
     },
