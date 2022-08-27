@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path')
 const mercurius = require('mercurius');
+const { readFiles } = require('./utils/file');
 const { ErrorWithProps } = mercurius;
 
 const createResolver = (resolvers, type, resolver) => async (_, params) => {
@@ -57,12 +58,6 @@ const generateResolvers = (resolvers) => {
 
     return resolverMap;
 }
-
-const readFiles = (dirname, onFileContent) => {
-    fs.readdirSync(dirname).forEach(function (filename) {
-        onFileContent(filename, fs.readFileSync(path.join(dirname, filename), 'utf-8'));
-    });
-};
 
 const setupGraphql = (name, dir) => generateResolvers(collectResolvers(name, dir));
 
