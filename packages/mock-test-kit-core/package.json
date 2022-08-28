@@ -1,0 +1,21 @@
+{
+  "name": "@rise8/mock-test-kit-core",
+  "version": "0.4.0",
+  "description": "A library for creating mock-test-kit json files programmatically.",
+  "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rise8-us/mock-test-kit.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --coverage --no-cache"
+  }
+}

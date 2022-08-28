@@ -1,6 +1,6 @@
-const { isMatch } = require('./services/matching');
-const { substituteResponse } = require('./services/substitutions');
+const { isMatch } = require('./request/matcher');
 const { readFiles } = require('./utils/file');
+const { traverseResponseAndApply } = require('./expressions');
 
 const replyWithResponse = (reply, response) => {
   if (response.status >= 300 && response.status < 400) {
@@ -35,10 +35,10 @@ const createHandler = (endpoint, method) => async (request, reply) => {
     let response;
 
     if (Array.isArray(mock.response) && mock.response.length > 0) {
-      response = substituteResponse(mock.response[0], request);
+      response = traverseResponseAndApply(mock.response[0], request);
       mock.response.push(mock.response.shift());
     } else {
-      response = substituteResponse(mock.response, request);
+      response = traverseResponseAndApply(mock.response, request);
     }
 
     replyWithResponse(reply, response);

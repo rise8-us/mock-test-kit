@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "declaration": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "pretty": true,
+    "lib": ["es2019"],
+    "types": ["node", "jest"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}

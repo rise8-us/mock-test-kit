@@ -110,7 +110,7 @@ describe('Setup', () => {
       };
       const response = {
         status: 301,
-        redirect: '{{query.redirect_uri}}',
+        redirect: '${{query.redirect_uri}}',
       };
       const endpoint = {
         POST: {
