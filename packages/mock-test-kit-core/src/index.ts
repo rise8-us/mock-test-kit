@@ -1,8 +1,10 @@
+export * from './types';
+
 import * as MockTestKit from './Mock';
 
-export * from './types';
+export { RestResponseBuilder, RestRequestBuilder } from './builders';
+export { Matcher } from './Matcher';
+
 export * from './expressions';
-export * from './builders';
-export * from './Matcher';
 
 export { MockTestKit as default };
