@@ -52,10 +52,6 @@ export type HttpServerError =
   | 511;
 export type HttpError = HttpClientError | HttpServerError;
 
-export type Context = `${string}.${string}`;
-export type Expression = `\${{ ${Context | Func} }}`;
-export type Func = `${string}(${string})`;
-
 export type MockTestKitRestRequest = {
   headers?: Record<string, Matcher | string | number | boolean>;
   query?: Record<string, Matcher | string | number | boolean>;

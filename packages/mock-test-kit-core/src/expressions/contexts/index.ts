@@ -2,7 +2,7 @@ import { createHeaders } from './Headers';
 import { createParams } from './Params';
 import { createQueryParams } from './QueryParams';
 import { createBodyParams } from './BodyParams';
-import type { Context } from '../../types';
+import { Context } from './Context';
 
 export namespace Ctx {
   export const headers: (value: string) => Context = createHeaders;
@@ -11,6 +11,7 @@ export namespace Ctx {
   export const bodyParams: (value: string) => Context = createBodyParams;
 }
 
+export { Context } from './Context';
 export { createHeaders } from './Headers';
 export { createParams } from './Params';
 export { createQueryParams } from './QueryParams';

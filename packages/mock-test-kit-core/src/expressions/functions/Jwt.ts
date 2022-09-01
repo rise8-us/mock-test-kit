@@ -1,5 +1,4 @@
-import { create } from './Function';
-import { Func } from '../../types';
+import { create, Func } from './Function';
 
 export const createJwt = (
   payload: Record<string, unknown>,

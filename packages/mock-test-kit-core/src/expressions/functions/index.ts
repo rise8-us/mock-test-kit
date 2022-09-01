@@ -1,6 +1,6 @@
 import { createJwt } from './Jwt';
 import { createNow } from './Now';
-import { Func } from '../../types';
+import { Func } from './Function';
 
 export namespace Fn {
   export const jwt: (
@@ -12,5 +12,6 @@ export namespace Fn {
   export const now: (num: number, unit: 'sec' | 'ms') => Func = createNow;
 }
 
+export { Func } from './Function';
 export { createJwt } from './Jwt';
 export { createNow } from './Now';

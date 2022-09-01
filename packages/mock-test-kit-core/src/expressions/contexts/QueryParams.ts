@@ -1,5 +1,4 @@
-import { create } from './Context';
-import type { Context } from '../../types';
+import { Context, create } from './Context';
 
 export const createQueryParams = (value: string): Context =>
   create('query', value);
