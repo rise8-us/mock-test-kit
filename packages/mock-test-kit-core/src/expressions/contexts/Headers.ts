@@ -1,5 +1,5 @@
-import * as Ctx from './Context';
-import { Context } from '../../types';
+import { create } from './Context';
+import type { Context } from '../../types';
 
 export const createHeaders = (value: string): Context =>
-  Ctx.create('headers', value);
+  create('headers', value);

@@ -1,5 +1,4 @@
-import * as Ctx from './Context';
-import { Context } from '../../types';
+import { create } from './Context';
+import type { Context } from '../../types';
 
-export const createParams = (value: string): Context =>
-  Ctx.create('params', value);
+export const createParams = (value: string): Context => create('params', value);

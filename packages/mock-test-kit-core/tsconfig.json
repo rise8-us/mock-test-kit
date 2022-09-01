@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "target": "es5",
     "module": "commonjs",
-//    "declaration": true,
+    "declaration": true,
     "outDir": "./lib",
     "strict": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "sourceMap": true,
-//    "declarationMap": true,
+    "declarationMap": true,
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]

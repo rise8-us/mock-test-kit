@@ -1,5 +1,9 @@
-import { IResponseBuilder, MockTestKitRestResponse } from '../types/builders';
-import { HttpError, HttpRedirect } from '../types/global';
+import {
+  HttpError,
+  HttpRedirect,
+  IResponseBuilder,
+  MockTestKitRestResponse,
+} from '../types';
 
 export abstract class AbstractResponseBuilder implements IResponseBuilder {
   protected readonly response: MockTestKitRestResponse = {

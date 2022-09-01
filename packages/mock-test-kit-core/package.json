@@ -4,9 +4,8 @@
   "description": "A library for creating mock-test-kit json files programmatically.",
   "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
   "main": "lib/index.js",
-  "module": "lib/index.mjs",
   "files": [
-    "lib/**/*"
+    "lib"
   ],
   "types": "lib/index.d.ts",
   "repository": {

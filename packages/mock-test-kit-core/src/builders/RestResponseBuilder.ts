@@ -1,7 +1,6 @@
 import { NoResetProperty } from '../decorators/Property';
-import { MockTestKitRestResponse } from '../types/builders';
-import { HttpError, HttpRedirect } from '../types/global';
 import { AbstractResponseBuilder } from './AbstractResponseBuilder';
+import { HttpError, HttpRedirect, MockTestKitRestResponse } from '../types';
 
 /**
  * @class RestResponseBuilder
