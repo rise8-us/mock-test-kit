@@ -34,6 +34,8 @@ jobs:
 
       - run: |
           cd packages/mock-test-kit-core
+          yarn install
+          yarn build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
