@@ -24,10 +24,11 @@ If you intend to use GraphQL API then provide a graphql schema file that uses yo
       environment:
         API_NAME: mock-api
         PORT: 3003
-        WATCH: true # optional
+        WATCH: true # optional (defaults false)
+        HEADERS: true # optional (defaults false)
       volumes:
         - ./integration/mock-data:/tmp/mock-data
-        - ./infrastructure/schema:/tmp/schema # optional
+        - ./infrastructure/schema:/tmp/schema # optional (used for GraphQL)
 ```
 
 ### Create JSON data

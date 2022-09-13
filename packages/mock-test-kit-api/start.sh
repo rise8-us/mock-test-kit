@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if [ "$WATCH" = "true" ]; then
-  yarn watch
+  HEADERS=${HEADERS:-default false} yarn watch
 else
-  yarn start
+  HEADERS=${HEADERS:=default false} yarn start
 fi
