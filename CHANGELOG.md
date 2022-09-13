@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.0.0...mock-test-kit-v1.0.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* failed to build on publish ([81e68ad](https://github.com/rise8-us/mock-test-kit/commit/81e68ad8d5fe492f8370918a2060a075c6bce595))
+
 ## [1.0.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v0.4.0...mock-test-kit-v1.0.0) (2022-09-13)
 
 
