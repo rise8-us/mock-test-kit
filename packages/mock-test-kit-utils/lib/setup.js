@@ -22,24 +22,24 @@ const createHandler = (endpoint, method) => async (request, reply) => {
   // eslint-disable-next-line no-unused-vars
   const mock = mocks.find(({ request: req, response: res }) => {
     // istanbul ignore next
+    let headersMatch = true;
+    if (process.env.HEADERS === 'true') {
+      headersMatch = isMatch(request.headers || {}, req.headers || {});
+    }
+
     return (
       req &&
       request &&
-      isMatch(request.query || {}, req.query || {}) &&
+      headersMatch &&
       isMatch(request.params || {}, req.params || {}) &&
+      isMatch(request.query || {}, req.query || {}) &&
       isMatch(request.body || {}, req.body || {})
     );
   });
 
   if (mock) {
-    let response;
-
-    if (Array.isArray(mock.response) && mock.response.length > 0) {
-      response = traverseResponseAndApply(mock.response[0], request);
-      mock.response.push(mock.response.shift());
-    } else {
-      response = traverseResponseAndApply(mock.response, request);
-    }
+    const response = traverseResponseAndApply(mock.response[0], request);
+    mock.response.push(mock.response.shift());
 
     replyWithResponse(reply, response);
   } else {
@@ -54,14 +54,14 @@ const collectEndpoints = (name, dir) => {
 
   readFiles(dir, (filename, content) => {
     JSON.parse(content).forEach(
-      ({ api, endpoint, httpMethod, request, response }) => {
-        if (api === name && endpoint !== '/graphql') {
-          if (endpoints[endpoint] && endpoints[endpoint][httpMethod]) {
-            endpoints[endpoint][httpMethod].data.push({ request, response });
+      ({ service, path, method, request, response }) => {
+        if (service === name && path !== '/graphql') {
+          if (endpoints[path] && endpoints[path][method]) {
+            endpoints[path][method].data.push({ request, response });
           } else {
-            endpoints[endpoint] = {
-              ...endpoints[endpoint],
-              [httpMethod]: {
+            endpoints[path] = {
+              ...endpoints[path],
+              [method]: {
                 data: [{ request, response }],
               },
             };

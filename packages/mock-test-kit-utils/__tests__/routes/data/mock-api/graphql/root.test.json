@@ -1,7 +1,7 @@
 [
   {
-    "api": "mock-api",
-    "endpoint": "/graphql",
+    "service": "mock-api",
+    "path": "/graphql",
     "request": {
       "type": "Query",
       "resolver": "memberCard",
@@ -17,8 +17,8 @@
     }
   },
   {
-    "api": "mock-api",
-    "endpoint": "/graphql",
+    "service": "mock-api",
+    "path": "/graphql",
     "request": {
       "type": "Query",
       "resolver": "member",
@@ -47,8 +47,8 @@
     }
   },
   {
-    "api": "mock-api",
-    "endpoint": "/graphql",
+    "service": "mock-api",
+    "path": "/graphql",
     "request": {
       "type": "Query",
       "resolver": "memberCard",
@@ -64,8 +64,8 @@
     }
   },
   {
-    "api": "mock-api",
-    "endpoint": "/graphql",
+    "service": "mock-api",
+    "path": "/graphql",
     "request": {
       "type": "Query",
       "resolver": "member",

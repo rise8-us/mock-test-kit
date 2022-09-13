@@ -30,8 +30,8 @@ const collectResolvers = (name, dir) => {
   const resolvers = {};
 
   readFiles(dir, (filename, content) => {
-    JSON.parse(content).forEach(({ api, endpoint, request, response }) => {
-      if (api === name && endpoint === '/graphql') {
+    JSON.parse(content).forEach(({ service, path, request, response }) => {
+      if (service === name && path === '/graphql') {
         if (
           resolvers[request.type] &&
           resolvers[request.type][request.resolver]
