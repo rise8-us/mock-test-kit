@@ -40,15 +40,15 @@ directory`./integration/mock-data`.
 
 ```json
 {
-  "api": {
+  "service": {
     "type": "string",
     "pattern": "^[A-z0-9-]+$"
   },
-  "endpoint": {
+  "path": {
     "type": "string",
     "pattern": "^\/[A-z0-9\/-]+$"
   },
-  "httpMethod": {
+  "method": {
     "type": "string",
     "pattern": "^(DELETE|GET|OPTIONS|PATCH|POST|PUT)$"
   },
@@ -67,18 +67,24 @@ directory`./integration/mock-data`.
     }
   },
   "response": {
-    "type": "object",
-    "properties": {
-      "status": {
-        "type": "integer",
-        "minimum": 200,
-        "maximum": 500
-      },
-      "headers": {
-        "type": "object"
-      },
-      "body": {
-        "type": "object | array | string | number | boolean | null"
+    "type": "array",
+    "items": { "$ref": "#/$defs/response" }
+  },
+  "$defs": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "minimum": 200,
+          "maximum": 500
+        },
+        "headers": {
+          "type": "object"
+        },
+        "body": {
+          "type": "object | array | string | number | boolean | null"
+        }
       }
     }
   }
@@ -131,21 +137,23 @@ example if I want to match all requests with `/users/{id}` then I can use the fo
 
 ```json
 {
-  "api": "api",
-  "endpoint": "/users/{id}",
-  "httpMethod": "GET",
+  "service": "api",
+  "path": "/users/{id}",
+  "method": "GET",
   "request": {
     "params": {
       "id": ".+"
     }
   },
-  "response": {
-    "status": 200
-  }
+  "response": [
+    {
+      "status": 200
+    }
+  ]
 }
 ```
 
-### Use Substitutions
+### Use Expressions
 
 Generally, you may want to use request data to append to your response. You can use any key from
 `params`, `query` or `body` to substitute a value.
@@ -154,20 +162,22 @@ Say for example I want to use the `id` parameter to append to the response.
 
 ```json
 {
-  "api": "mock-api",
-  "endpoint": "/users/{id}",
-  "httpMethod": "GET",
+  "service": "mock-api",
+  "path": "/users/{id}",
+  "method": "GET",
   "request": {
     "params": {
       "id": ".+"
     }
   },
-  "response": {
-    "status": 200,
-    "body": {
-      "id": "{{params.id}}"
+  "response": [
+    {
+      "status": 200,
+      "body": {
+        "id": "${{ params.id }}"
+      }
     }
-  }
+  ]
 }
 ```
 
@@ -180,18 +190,20 @@ we pair it with substitutions. Subs always happen first.
 
 ```json
 {
-  "api": "mock-api",
-  "endpoint": "/time/seconds/{number}/ago",
-  "httpMethod": "GET",
+  "service": "mock-api",
+  "path": "/time/seconds/{number}/ago",
+  "method": "GET",
   "request": {
     "params": {
       "number": "\\d+"
     }
   },
-  "response": {
-    "status": 200,
-    "body": "now(-{{params.number}},sec)"
-  }
+  "response": [
+    {
+      "status": 200,
+      "body": "${{ now(-${{params.number}},\"sec\") }}"
+    }
+  ]
 }
 ```
 
@@ -213,12 +225,10 @@ In the following example we create a token simply using a secret.
 
 ```json
 {
-  "api": "auth",
-  "endpoint": "/token",
-  "httpMethod": "POST",
+  "service": "auth",
+  "path": "/token",
+  "method": "POST",
   "request": {
-    "params": {},
-    "query": {},
     "body": {
       "code": ".*",
       "grant_type": "authorization_code",
@@ -226,15 +236,17 @@ In the following example we create a token simply using a secret.
       "client_id": ".*"
     }
   },
-  "response": {
-    "status": 200,
-    "body": {
-      "access_token": "jwt({\"aud\":\"some_auth\",\"iss\":\"http://localhost:8080/\",\"exp\":\"now(3600,sec)\",\"iat\":\"now(3600,sec)\"},\"secret\",{})",
-      "expires_in": 86399,
-      "scope": "openid profile",
-      "token_type": "Bearer"
+  "response": [
+    {
+      "status": 200,
+      "body": {
+        "access_token": "${{ jwt({\"aud\":\"some_auth\",\"iss\":\"http://localhost:8080/\",\"exp\":\"${{ now(3600,\"sec\") }}\",\"iat\":\"${{ now(3600,\"sec\") }}\"},\"secret\",{}) }}",
+        "expires_in": 86399,
+        "scope": "openid profile",
+        "token_type": "Bearer"
+      }
     }
-  }
+  ]
 }
 ```
 
@@ -243,12 +255,10 @@ files you include must be found in `/tmp`. In the case of docker you will need t
 
 ```json
 {
-  "api": "auth",
-  "endpoint": "/token",
-  "httpMethod": "POST",
+  "service": "auth",
+  "path": "/token",
+  "method": "POST",
   "request": {
-    "params": {},
-    "query": {},
     "body": {
       "code": ".*",
       "grant_type": "authorization_code",
@@ -256,15 +266,17 @@ files you include must be found in `/tmp`. In the case of docker you will need t
       "client_id": ".*"
     }
   },
-  "response": {
-    "status": 200,
-    "body": {
-      "access_token": "jwt({\"aud\":\"some_auth\",\"iss\":\"http://localhost:8080/\",\"exp\":\"now(3600,sec)\",\"iat\":\"now(3600,sec)\"},\"private.key\",{\"algorithm\":\"RS256\"},\"super-secret-passphrase\")",
-      "expires_in": 86399,
-      "scope": "openid profile",
-      "token_type": "Bearer"
+  "response": [
+    {
+      "status": 200,
+      "body": {
+        "access_token": "${{ jwt({\"aud\":\"some_auth\",\"iss\":\"http://localhost:8080/\",\"exp\":\"${{ now(3600,\"sec\") }}\",\"iat\":\"${{ now(3600,\"sec\") }}\"},\"private.key\",{\"algorithm\":\"RS256\"},\"super-secret-passphrase\") }}",
+        "expires_in": 86399,
+        "scope": "openid profile",
+        "token_type": "Bearer"
+      }
     }
-  }
+  ]
 }
 ```
 
