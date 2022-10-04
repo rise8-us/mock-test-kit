@@ -52,6 +52,10 @@ directory`./integration/mock-data`.
     "type": "string",
     "pattern": "^(DELETE|GET|OPTIONS|PATCH|POST|PUT)$"
   },
+  "protocol": {
+    "type": "string",
+    "pattern": "^(http)$"
+  },
   "request": {
     "type": "object",
     "properties": {
@@ -80,6 +84,72 @@ directory`./integration/mock-data`.
           "maximum": 500
         },
         "headers": {
+          "type": "object"
+        },
+        "body": {
+          "type": "object | array | string | number | boolean | null"
+        }
+      }
+    }
+  }
+}
+```
+
+#### WebSockets Schema
+
+```json
+{
+  "service": {
+    "type": "string",
+    "pattern": "^[A-z0-9-]+$"
+  },
+  "path": {
+    "type": "string",
+    "pattern": "^\/[A-z0-9\/-]+$"
+  },
+  "method": {
+    "type": "string",
+    "pattern": "^(GET)$"
+  },
+  "protocol": {
+    "type": "string",
+    "pattern": "^(ws)$"
+  },
+  "request": {
+    "type": "object",
+    "properties": {
+      "body": {
+        "type": "string"
+      },
+      "params": {
+        "type": "object"
+      },
+      "query": {
+        "type": "object"
+      }
+    }
+  },
+  "response": {
+    "type": "array",
+    "items": { "$ref": "#/$defs/response" }
+  },
+  "$defs": {
+    "response": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "minimum": 200,
+          "maximum": 500
+        },
+        "headers": {
+          "type": "object"
+        },
+        "interval": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "messages": {
           "type": "object"
         },
         "body": {

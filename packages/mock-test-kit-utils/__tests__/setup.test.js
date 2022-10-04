@@ -9,13 +9,13 @@ describe('Setup', () => {
 
   it('should generate POST:GET /api/ide/recommend', async () => {
     const fastify = {
-      get: jest.fn(),
       post: jest.fn(),
+      route: jest.fn(),
     };
 
     setupRest(api, path.join(__dirname, './routes/data'), fastify);
 
-    expect(fastify.get).toBeCalledTimes(1);
+    expect(fastify.route).toBeCalledTimes(1);
     expect(fastify.post).toBeCalledTimes(1);
   });
 

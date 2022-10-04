@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const mercurius = require('mercurius');
 const { setupGraphql } = require('@rise8/mock-test-kit-utils');
-const AutoLoad = require('fastify-autoload');
+const AutoLoad = require('@fastify/autoload');
 
 const { parseJsonContentType } = require('./lib/utils');
 
@@ -18,6 +18,15 @@ module.exports = async function (fastify, opts) {
   fastify.register(require('@fastify/cors'), {
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  });
+  fastify.register(require('@fastify/websocket'), {
+    // eslint-disable-next-line no-unused-vars
+    handle: (conn, req) => {
+      conn.pipe(conn); // creates an echo server
+    },
+    options: {
+      maxPayload: 1048576,
+    },
   });
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),

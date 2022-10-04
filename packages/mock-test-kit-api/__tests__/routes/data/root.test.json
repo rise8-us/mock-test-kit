@@ -77,6 +77,14 @@
   },
   {
     "api": "mock-api",
+    "endpoint": "/api/users/profile",
+    "httpMethod": "GET",
+    "websocket": true,
+    "request": {},
+    "response": {}
+  },
+  {
+    "api": "mock-api",
     "endpoint": "/graphql",
     "request": {
       "type": "Query",

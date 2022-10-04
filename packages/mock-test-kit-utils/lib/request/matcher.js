@@ -1,5 +1,5 @@
 const getRegex = (regexString) => {
-  const validRegex = regexString.match(/^\/(.*)\/(.*)$/);
+  const validRegex = regexString.match(/^\/(.*)\/([gim]*)$/);
 
   if (validRegex) {
     return new RegExp(validRegex[1], validRegex[2]);
@@ -57,6 +57,7 @@ const isMatch = (actual, mock) => {
 
   return true;
 };
+
 module.exports = {
   isMatch,
 };

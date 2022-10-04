@@ -36,6 +36,10 @@ const apply = (value, request) => {
 
 const traverseResponseAndApply = (response, request) => {
   const newResponse = JSON.parse(JSON.stringify(response));
+  if (typeof newResponse === 'string') {
+    return apply(newResponse, request);
+  }
+
   for (const key of Object.keys(newResponse)) {
     if (!newResponse[key]) continue;
 
