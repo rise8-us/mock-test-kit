@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.0.1...mock-test-kit-v1.1.0) (2022-10-11)
+
+
+### Features
+
+* add websocket support ([1391ecf](https://github.com/rise8-us/mock-test-kit/commit/1391ecf3d589ed9ef1c518403c417fb23a0b8b2c))
+* **docs:** update README.md to use v1 specs ([b436160](https://github.com/rise8-us/mock-test-kit/commit/b4361607472e2ea3700c4694934f687cb72772e7))
+
 ## [1.0.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.0.0...mock-test-kit-v1.0.1) (2022-09-13)
 
 
