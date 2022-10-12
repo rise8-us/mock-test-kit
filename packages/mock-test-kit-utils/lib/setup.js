@@ -48,18 +48,16 @@ const createWebsocketHandler = (endpoint, method) => {
       mock.response.push(mock.response.shift());
 
       const messageHandler = (message) => {
-        if (response.messages?.[message]) {
+        if (response.messages?.[message.toString()]) {
           const responseMessage = traverseResponseAndApply(
-            mock.response[0].messages[message][0],
+            mock.response[0].messages[message.toString()][0],
             request,
           );
-          mock.response[0].messages[message].push(
-            mock.response[0].messages[message].shift(),
+          mock.response[0].messages[message.toString()].push(
+            mock.response[0].messages[message.toString()].shift(),
           );
 
           connection.socket.send(responseMessage);
-        } else {
-          connection.socket.send(`No response message found for "${message}".`);
         }
       };
 
