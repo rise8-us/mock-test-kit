@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.1.0...mock-test-kit-v1.1.1) (2022-10-12)
+
+
+### Bug Fixes
+
+* handle buffers in websocket msg and do not default reply ([37261b1](https://github.com/rise8-us/mock-test-kit/commit/37261b1a27358445a15838eb68301fcee951bed0))
+
 ## [1.1.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.0.1...mock-test-kit-v1.1.0) (2022-10-11)
 
 
