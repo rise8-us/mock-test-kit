@@ -251,6 +251,32 @@ Say for example I want to use the `id` parameter to append to the response.
 }
 ```
 
+### Use base64Encode()
+
+You can use the `now` function to provide dynamic dateTime values in ms.
+
+In the following example we can return the milliseconds for the time number of seconds ago. Notice
+we pair it with substitutions. Subs always happen first.
+
+```json
+{
+  "service": "mock-api",
+  "path": "/message/encoded",
+  "method": "GET",
+  "request": {
+    "params": {
+      "name": ".*"
+    }
+  },
+  "response": [
+    {
+      "status": 200,
+      "body": "${{ base64Encode({\"message\":\"${{ base64Encode(Hi ${{ params.name }}!) }}\"}) }}"
+    }
+  ]
+}
+```
+
 ### Use now()
 
 You can use the `now` function to provide dynamic dateTime values in ms.

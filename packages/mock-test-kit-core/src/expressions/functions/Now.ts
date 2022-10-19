@@ -10,6 +10,4 @@ class NowCall extends FunctionCall {
 export const callNow = (
   num: number,
   unit: NowFunctionCallUnit,
-): IFunctionCall => {
-  return new NowCall(num, unit);
-};
+): IFunctionCall => new NowCall(num, unit);

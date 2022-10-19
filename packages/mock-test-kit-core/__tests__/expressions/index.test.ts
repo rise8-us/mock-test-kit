@@ -39,5 +39,14 @@ describe('Expression', () => {
         '${{ now(0, "sec") }}',
       );
     });
+
+    it('should output base64Encode function expression', () => {
+      expect(
+        Expr.create(Fn.callBase64Encode("Hi I'm a string!")).toString(),
+      ).toStrictEqual("${{ base64Encode(Hi I'm a string!) }}");
+      expect(Expr.create(Fn.callBase64Encode({})).toString()).toStrictEqual(
+        '${{ base64Encode({}) }}',
+      );
+    });
   });
 });

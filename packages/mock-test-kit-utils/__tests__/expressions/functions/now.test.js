@@ -20,7 +20,7 @@ describe('now', () => {
   describe('getFunction', () => {
     jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
 
-    it('should throw an error when given an invalid jwt function', () => {
+    it('should throw an error when given an invalid now function', () => {
       expect(() => getFunction('test()')).toThrowError(
         'The expression test() is not a valid now function.',
       );

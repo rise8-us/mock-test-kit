@@ -23,6 +23,4 @@ export const callJwt = (
   privateKey: string,
   options: Record<string, unknown> | null = null,
   passphrase: string | null = null,
-): IFunctionCall => {
-  return new JwtCall(payload, privateKey, options, passphrase);
-};
+): IFunctionCall => new JwtCall(payload, privateKey, options, passphrase);

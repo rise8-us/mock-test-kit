@@ -17,6 +17,7 @@ export const create = (value: MatcherValue): IMatcher => {
 };
 export const all = (): IMatcher => new Matcher(/.*/);
 export const num = (): IMatcher => new Matcher(/\d+/);
+export const base64 = (): IMatcher => new Matcher(/^[a-zA-Z0-9+/]+={0,2}$/);
 export const bool = (): IMatcher => new Matcher(/true|false/);
 export const hash = (): IMatcher => new Matcher(/^[a-f0-9]{64}$/);
 export const bearerAuthorization = (): IMatcher =>
