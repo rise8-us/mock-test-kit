@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.1.1...mock-test-kit-v1.2.0) (2022-10-19)
+
+
+### Features
+
+* add function expression base64Encode ([8eeecf8](https://github.com/rise8-us/mock-test-kit/commit/8eeecf8dd4d1853baedea74b46fc1ea68bc4e6ab))
+
 ## [1.1.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.1.0...mock-test-kit-v1.1.1) (2022-10-12)
 
 
