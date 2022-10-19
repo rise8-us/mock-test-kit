@@ -154,6 +154,8 @@ describe('Setup', () => {
                 {
                   status: 200,
                   body: {
+                    message:
+                      '${{ base64Encode({"value":"${{ base64Encode(I\'m a message) }}"}) }}',
                     access_token:
                       '${{ jwt({"aud":"sand_man","iss":"http://sandbox:8060/","exp":"${{ now(3600,"sec") }}","iat":"${{ now(3600,"sec") }}","jti":"da046ccd-473b-43b1-8fc8-d93d9bb30d3d"},"secret",{"header":{"kid":"rsa1","jku":"http://sandbox:8060/jwk"}}) }}',
                     expires_in: 86399,
@@ -182,6 +184,7 @@ describe('Setup', () => {
 
       expect(mockReplyCode).toHaveBeenCalledWith(200);
       expect(mockReplySend).toHaveBeenCalledWith({
+        message: 'IHsidmFsdWUiOiJJRWtuYlNCaElHMWxjM05oWjJVZyJ9IA==',
         access_token:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJzYTEiLCJqa3UiOiJodHRwOi8vc2FuZGJveDo4MDYwL2p3ayJ9.eyJhdWQiOiJzYW5kX21hbiIsImlzcyI6Imh0dHA6Ly9zYW5kYm94OjgwNjAvIiwiZXhwIjoxNTc3ODQwNDAwMDAwLCJpYXQiOjE1Nzc4NDA0MDAwMDAsImp0aSI6ImRhMDQ2Y2NkLTQ3M2ItNDNiMS04ZmM4LWQ5M2Q5YmIzMGQzZCJ9.XldmepZd2V6dlW5hs-XRaA4nZfB1kqpwuJpjalYQKNA',
         expires_in: 86399,

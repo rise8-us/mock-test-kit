@@ -1,4 +1,4 @@
-export type FunctionName = 'jwt' | 'now';
+export type FunctionName = 'jwt' | 'now' | 'base64Encode';
 export type FunctionCallString = `${FunctionName}(${string})`;
 export type FunctionCallArgs = (string | number | boolean)[];
 
