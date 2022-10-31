@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.2.0...mock-test-kit-v1.3.0) (2022-10-31)
+
+
+### Features
+
+* add proxy functionality ([27281a1](https://github.com/rise8-us/mock-test-kit/commit/27281a10d48913c4d58ff3a22f531d5347a19ca2))
+
 ## [1.2.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.1.1...mock-test-kit-v1.2.0) (2022-10-19)
 
 
