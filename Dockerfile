@@ -1,4 +1,4 @@
-FROM node:16.15.1-alpine as builder
+FROM node:18.12.0-alpine as builder
 
 WORKDIR /usr/src/app
 RUN yarn global add lerna

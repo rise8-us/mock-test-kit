@@ -2,8 +2,18 @@ const { isMatch } = require('./request/matcher');
 const { readFiles } = require('./utils/file');
 const { traverseResponseAndApply } = require('./expressions');
 
-const replyWithResponse = (reply, response) => {
-  if (response.status >= 300 && response.status < 400) {
+const replyWithResponse = async (reply, response) => {
+  if (response.proxy) {
+    try {
+      const res = await fetch(response.proxy.url, {
+        headers: response.proxy.headers,
+      });
+      const body = await res.text();
+      reply.code(res.status).send(body);
+    } catch (err) {
+      reply.code(500).send(err);
+    }
+  } else if (response.status >= 300 && response.status < 400) {
     reply
       .code(response.status)
       .headers(response.headers || {})
@@ -89,7 +99,7 @@ const createHandler = (endpoint, method) => {
       const response = traverseResponseAndApply(mock.response[0], request);
       mock.response.push(mock.response.shift());
 
-      replyWithResponse(reply, response);
+      await replyWithResponse(reply, response);
     } else {
       reply
         .code(404)
