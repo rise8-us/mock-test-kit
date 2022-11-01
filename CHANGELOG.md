@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.3.0...mock-test-kit-v1.4.0) (2022-11-01)
+
+
+### Features
+
+* add multi architecture builds ([0ec77d1](https://github.com/rise8-us/mock-test-kit/commit/0ec77d15ddfbf9f5d9a99aa2c3b24880a6a6cc0c))
+
 ## [1.3.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.2.0...mock-test-kit-v1.3.0) (2022-10-31)
 
 
