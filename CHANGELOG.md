@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.3](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.2...mock-test-kit-v1.5.3) (2022-11-01)
+
+
+### Bug Fixes
+
+* reverting to support for amd only ([e464f41](https://github.com/rise8-us/mock-test-kit/commit/e464f414f1796b94015d15c5fb01807db0aa7cd6))
+
 ## [1.5.2](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.1...mock-test-kit-v1.5.2) (2022-11-01)
 
 
