@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.4.0...mock-test-kit-v1.5.0) (2022-11-01)
+
+
+### Features
+
+* only support amd and arm ([db8286f](https://github.com/rise8-us/mock-test-kit/commit/db8286f134d87de1c262463d4311865571b5473b))
+
 ## [1.4.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.3.0...mock-test-kit-v1.4.0) (2022-11-01)
 
 
