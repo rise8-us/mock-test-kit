@@ -1,6 +1,6 @@
 {
   "name": "mock-test-kit-gateway",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A Mock GraphQL Gateway",
   "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
   "private": true,
