@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.2](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.1...mock-test-kit-v1.5.2) (2022-11-01)
+
+
+### Bug Fixes
+
+* add matrix for multi arch builds ([e749191](https://github.com/rise8-us/mock-test-kit/commit/e749191e85472c4c3617176ba7d77090351aa780))
+
 ## [1.5.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.0...mock-test-kit-v1.5.1) (2022-11-01)
 
 

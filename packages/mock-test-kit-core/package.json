@@ -1,6 +1,6 @@
 {
   "name": "@rise8/mock-test-kit-core",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A library for creating mock-test-kit json files programmatically.",
   "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
   "main": "lib/index.js",
