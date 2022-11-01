@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.0...mock-test-kit-v1.5.1) (2022-11-01)
+
+
+### Bug Fixes
+
+* only support amd and arm in base image ([2821282](https://github.com/rise8-us/mock-test-kit/commit/2821282f8d5077b4845ea8c60a18f4317d4dcf50))
+
 ## [1.5.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.4.0...mock-test-kit-v1.5.0) (2022-11-01)
 
 
