@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.3...mock-test-kit-v1.6.0) (2023-01-18)
+
+
+### Features
+
+* add support for public route with static files that can be redirected to ([539268e](https://github.com/rise8-us/mock-test-kit/commit/539268e1dc29d7c32537434a4ea8baaf61d4f0f5))
+
 ## [1.5.3](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.2...mock-test-kit-v1.5.3) (2022-11-01)
 
 

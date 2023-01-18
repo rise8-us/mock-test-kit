@@ -1,6 +1,6 @@
 {
   "name": "mock-test-kit-api",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "A Mock REST & GraphQL API",
   "author": "Joshua Nathaniel Miller <jmiller@rise8.us>",
   "private": true,
@@ -19,12 +19,12 @@
     "mercurius": "9.8.0"
   },
   "dependencies": {
-    "@fastify/static": "6.6.1",
     "@fastify/autoload": "5.4.0",
     "@fastify/cors": "8.1.0",
     "@fastify/formbody": "7.3.0",
+    "@fastify/static": "6.6.1",
     "@fastify/websocket": "7.0.1",
-    "@rise8/mock-test-kit-utils": "^1.5.3",
+    "@rise8/mock-test-kit-utils": "^1.6.0",
     "fastify": "4.7.0",
     "fastify-cli": "5.5.0",
     "fastify-plugin": "4.2.1",
