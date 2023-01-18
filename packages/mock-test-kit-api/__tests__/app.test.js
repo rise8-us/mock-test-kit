@@ -28,7 +28,7 @@ describe('app', () => {
 
   it('should register rest and graphQL', async () => {
     await handler(fastify, { config: JSON.stringify({}) });
-    expect(fastify.register).toHaveBeenCalledTimes(5);
+    expect(fastify.register).toHaveBeenCalledTimes(6);
 
     expect(fs.readFileSync).toHaveBeenCalledWith(
       '/tmp/schema/mock-api.graphql',

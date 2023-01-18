@@ -14,6 +14,17 @@ module.exports = async function (fastify, opts) {
     { parseAs: 'string' },
     parseJsonContentType,
   );
+  if (fs.existsSync(path.join('/tmp', 'public'))) {
+    fastify.register(require('@fastify/static'), {
+      root: path.join('/tmp', 'public'),
+      prefix: '/public/', // optional: default '/'
+    });
+  } else {
+    fastify.register(require('@fastify/static'), {
+      root: path.join(__dirname, 'public'),
+      prefix: '/public/', // optional: default '/'
+    });
+  }
   fastify.register(require('@fastify/formbody'));
   fastify.register(require('@fastify/cors'), {
     origin: '*',
