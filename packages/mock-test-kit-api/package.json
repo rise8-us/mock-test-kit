@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "fastify start -w -l info -P app.js -p ${PORT}",
-    "start": "fastify start -l info app.js -p ${PORT}",
+    "start": "fastify start -l info app.js -p ${PORT} -a ${ADDRESS:-127.0.0.1}",
     "lint": "eslint .",
     "test": "jest --coverage",
     "watch": "nodemon --watch \"/tmp/mock-data/**/*\" -e json --exec yarn start"
