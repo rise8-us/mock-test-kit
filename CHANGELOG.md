@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.6.0...mock-test-kit-v1.6.1) (2023-09-29)
+
+
+### Bug Fixes
+
+* allow mock test kit api to bind to 0.0.0.0 in docker container ([37ec80b](https://github.com/rise8-us/mock-test-kit/commit/37ec80b9ddd12aa4d4d74b9cf3007f9fbced820e))
+
 ## [1.6.0](https://github.com/rise8-us/mock-test-kit/compare/mock-test-kit-v1.5.3...mock-test-kit-v1.6.0) (2023-01-18)
 
 
