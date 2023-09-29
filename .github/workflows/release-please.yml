@@ -38,10 +38,8 @@ jobs:
             echo ::set-output name=skip::false
             sha=$(git rev-parse HEAD)
             yarn install
-            rm yarn.lock
-            git status
+            git checkout yarn.lock
             npx lerna version ${version} --no-push --yes
-            rm yarn.lock
             git reset $sha
           else
             echo "Versions are the same"
