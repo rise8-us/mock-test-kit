@@ -21,6 +21,11 @@ jobs:
         with:
           ref: release-please--branches--main--components--mock-test-kit
           fetch-depth: 0
+      - name: Setup Node
+        if: ${{ !steps.release.outputs.release_created }}
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: .nvmrc
       - name: Create local changes
         id: changes
         if: ${{ !steps.release.outputs.release_created }}
