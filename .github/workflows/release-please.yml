@@ -39,6 +39,7 @@ jobs:
             sha=$(git rev-parse HEAD)
             yarn install
             npx lerna version ${version} --no-push --yes
+            git status
             git restore --staged yarn.lock
             git reset $sha
           else
